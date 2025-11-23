@@ -1,4 +1,4 @@
-function crearEstudiante(nombre, ...notas) {
+export function crearEstudiante(nombre, ...notas) {
     try {
         // Validamos que todas las notas sean números
         for (const nota of notas) {
@@ -33,11 +33,3 @@ function crearEstudiante(nombre, ...notas) {
         console.error("Error en el registro académico:", error.message);
     }
 }
-
-// Caso correcto
-const estudiante1 = crearEstudiante("Sebastián", 4.7, 3.0, 4.1);
-console.log("Estudiante válido:", estudiante1);
-
-// Caso incorrecto: una nota no es numérica
-const estudiante2 = crearEstudiante("Juan", 3.5, "hola", 2.9);
-console.log("Estudiante inválido:", estudiante2);

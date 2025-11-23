@@ -1,7 +1,4 @@
-const baseConfig = { modo: "producción", lenguaje: "es", nivel: 1 };
-const extraConfig = { nivel: 2, tema: "oscuro" };
-
-function configFinal(...configs) {
+export function configFinal(...configs) {
     try {
         // 1. Validamos que cada elemento recibido sea un objeto
         for (const cfg of configs) {
@@ -25,11 +22,3 @@ function configFinal(...configs) {
         return { validacion: false };
     }
 }
-
-// Caso correcto: fusiona baseConfig y extraConfig
-const resultadoValido = configFinal(baseConfig, extraConfig);
-console.log("Configuración válida:", resultadoValido);
-
-// Caso incorrecto: uno de los parámetros no es un objeto
-const resultadoInvalido = configFinal(baseConfig, "no es un objeto");
-console.log("Configuración inválida:", resultadoInvalido);
